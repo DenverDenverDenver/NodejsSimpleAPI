@@ -1,0 +1,175 @@
+openapi: 3.0.0
+info:
+  title: API Documentation
+  description: This is the documentation for a node.js API application
+  version: '1.0'
+servers:
+  - url: http://localhost:3000/api
+paths:
+  /product:
+    get:
+      tags:
+        - Product
+      summary: "Returns all products in the database"
+      responses:
+        '200':
+          description: Products read successfully
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+              message:
+                type: string
+              body:
+                type: object
+        '500':
+          description: Internal Server Error
+      produces:
+        - application/json
+    post:
+      summary: "Creates a product in the database"
+      tags:
+        - Product
+      responses:
+        '200':
+          description: Product Created Successfully
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+              message:
+                type: string
+              body:
+                type: object
+        '500':
+          description: Internal Server Error
+      parameters:
+        - in: body
+          name: body
+          description: Create Product Payload
+          required: true
+          schema:
+            properties:
+              name:
+                type: string
+                description: Name of the part for sale
+              price:
+                type: number
+                description: Price of the part for sale
+              description:
+                type: string
+                description: A brief description of the specifications of the part
+              status:
+                type: string
+                description: Sale status of the part (for sale, approved, pending)
+      produces:
+        - application/json
+  /product/{id}:
+    get:
+      tags:
+        - Product
+      summary: "Returns a single product in the database with the given ID"
+      responses:
+        '200':
+          description: Product read successfully
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+              message:
+                type: string
+              body:
+                type: object
+        '500':
+          description: Internal Server Error
+      parameters:
+        - in: path
+          name: id
+          description: ID of the part being looked up
+          required: true
+          schema:
+            properties:
+              id:
+                type: string
+                description: ID of the part being looked up
+      produces:
+        - application/json
+    put:
+      tags:
+        - Product
+      summary: "Updates a single part in the database at the given location" 
+      responses:
+        '200':
+          description: Product updated successfully
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+              message:
+                type: string
+              body:
+                type: object
+        '500':
+          description: Internal Server Error
+      parameters:
+        - in: path
+          name: id
+          description: ID of the part being updated
+          required: true
+          schema:
+            properties:
+              id:
+                type: string
+                description: ID of the part being updated
+        - in: body
+          name: body
+          description: Create Product Payload
+          required: true
+          schema:
+            properties:
+              name:
+                type: string
+                description: Name of the part for sale
+              price:
+                type: number
+                description: Price of the part for sale
+              description:
+                type: string
+                description: A brief description of the specifications of the part
+              status:
+                type: string
+                description: Sale status of the part (for sale, approved, pending)
+    delete:
+      tags:
+        - Product
+      summary: "Deletes a single product in the database with the given ID"
+      responses:
+        '200':
+          description: Product read successfully
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+              message:
+                type: string
+              body:
+                type: object
+        '500':
+          description: Internal Server Error
+      parameters:
+        - in: path
+          name: id
+          description: ID of the part being deleted
+          required: true
+          schema:
+            properties:
+              id:
+                type: string
+                description: ID of the part being deleted
+      produces:
+        - application/json
