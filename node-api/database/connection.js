@@ -14,7 +14,7 @@ module.exports = async () => {
 // cloud mongoDB
 
 // const { MongoClient } = require('mongodb');
-// const uri = "mongodb+srv://user1:<Pass!234>@cluster0.vl2la.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://user:<>@cluster.v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 // client.connect(err => {
 //   const collection = client.db("test").collection("devices");
