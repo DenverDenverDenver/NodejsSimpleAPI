@@ -4,7 +4,9 @@ Launch your Node.JS terminal in NODE-API and run the commands
 and then
 `npm start`
 
-This should open the API route which can then be tested on localhost:3000, through services such as Postman.
+This should open the API route which can then be tested on `localhost:3000`, through services such as Postman.
+
+Documentation of the API can be found at `localhost:3000/swagger`.
 
 ### Validation
 Some validation has been applied to the create and update routes. This validation enforces that all fields are filled in the create route, and that all data types are sent as they should be, for the update route.
